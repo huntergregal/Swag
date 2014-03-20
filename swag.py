@@ -6,7 +6,7 @@
 ##############################################
 
 
-
+import argparse
 import time
 import os
 
@@ -63,6 +63,7 @@ def swagB():
 	 '----------------'  '----------------'  '----------------'  '----------------' """
 	i=int(0)
 	while (i<=2):
+		os.system('clear')
 		print(swagBlocks)
 		time.sleep(0.5)
 		os.system('clear')
@@ -92,15 +93,47 @@ def swag3D():
 	        \::/    /                \::/____/                \::/    /                \::/____/
 	         \/____/                  ~~                       \/____/"""
 	print(swag3D)
-########Script Start#########
-os.system('clear')
-s()
-w()
-a()
-g()
-os.system('clear')
-swagB()
-swag3D()
+
+###########Arguemnts##############
+parser=argparse.ArgumentParser(description='Initiates Swag (Use with Screen or Tmux to always be swagged out)')
+parser.add_argument('-s', '--scroll', help='(Optional) An endless scroll of swag.',action='store_true', required=False)
+parser.add_argument('-b', '--blink', help='(Optional) Ever blinking swag on your screen.',action='store_true', required=False)
+parser.add_argument('-d', '--dimensional', help='(Optional) A 3D swag banner to accompany your work.',action='store_true', required=False)
+parser.add_argument('-l', '--loop', help='(Optional) A continuous loop of all the swag',action='store_true', required=False)
+args = parser.parse_args()
+########Script Start#########i
+if (args.scroll):
+	os.system('clear')
+	while (args.scroll):
+		s()
+		w()
+		a()
+		g()
+if (args.blink):
+	while (args.blink):
+		swagB()
+if (args.dimensional):
+	os.system('clear')
+	swag3D()
+	time.sleep(999999)
+if (args.loop):
+	while (args.loop):
+		os.system('clear')
+		s()
+		w()
+		a()
+		g()
+		swagB()
+		swag3D()
+	
+else:
+	os.system('clear')
+	s()
+	w()
+	a()
+	g()
+	swagB()
+	swag3D()
 
 
 ##########################################
