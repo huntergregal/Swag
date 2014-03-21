@@ -1,4 +1,4 @@
-#! /usr/bin python
+#!/usr/bin/python
 ##############################################
 ##	      	    SWAG		    ##
 ##	      Brought to you by  	    ##
@@ -10,10 +10,10 @@ import argparse
 import time
 import os
 
-#################Define Functions##########################
+# Define Functions
 
 
-def s():
+def s():  # Define "S"
     i = int(0)
     s = [
         " .----------------.",
@@ -33,7 +33,7 @@ def s():
         i = i + 1
 
 
-def w():
+def w():  # Define "W"
     i = int(0)
     w = [
         "         .----------------.",
@@ -53,7 +53,7 @@ def w():
         i = i + 1
 
 
-def a():
+def a():  # Define "A"
     i = int(0)
     a = [
         "                 .----------------.",
@@ -73,7 +73,7 @@ def a():
         i = i + 1
 
 
-def g():
+def g():  # Define "G"
     i = int(0)
     g = [
         "                         .----------------.",
@@ -94,7 +94,7 @@ def g():
         i = i + 1
 
 
-def swagB():
+def swagB():  # Define "SWAG" Block
     swagBlocks = """
 	.----------------.  .----------------.  .----------------.  .----------------.
 	| .--------------. || .--------------. || .--------------. || .--------------. |
@@ -108,7 +108,7 @@ def swagB():
 	| '--------------' || '--------------' || '--------------' || '--------------' |
 	 '----------------'  '----------------'  '----------------'  '----------------' """
     i = int(0)
-    while (i <= 2):
+    while (i <= 2):  # Loop print with time delay to make banner blink
         os.system('clear')
         print(swagBlocks)
         time.sleep(0.5)
@@ -117,7 +117,7 @@ def swagB():
         i = i + 1
 
 
-def swag3D():
+def swag3D():  # Define "3D Swag"
     swag3D = r"""
 	          _____                    _____                    _____                    _____
 	         /\    \                  /\    \                  /\    \                  /\    \
@@ -142,9 +142,9 @@ def swag3D():
 	         \/____/                  ~~                       \/____/"""
     print(swag3D)
 
-###########Arguemnts##############
+# Define Argument
 parser = argparse.ArgumentParser(
-    description='Initiates Swag (Use with Screen or Tmux to always be swagged out)')
+    description='Initiates Swag (Cntrl+C to exit loops) (Use with Screen or Tmux to always be swagged out)')
 parser.add_argument(
     '-s',
     '--scroll',
@@ -169,23 +169,23 @@ parser.add_argument(
     help='(Optional) A continuous loop of all the swag',
     action='store_true',
     required=False)
-args = parser.parse_args()
+args = parser.parse_args()  # Parse Agruments
 # Script Start#########i
-if (args.scroll):
+if (args.scroll):  # If -s, scroll continously
     os.system('clear')
     while (args.scroll):
         s()
         w()
         a()
         g()
-if (args.blink):
+if (args.blink):  # If -b, blink coninuously
     while (args.blink):
         swagB()
-if (args.dimensional):
+if (args.dimensional):  # If -d, 3D banner
     os.system('clear')
     swag3D()
     time.sleep(999999)
-if (args.loop):
+if (args.loop):  # If -l, loop blocks
     while (args.loop):
         os.system('clear')
         s()
@@ -195,7 +195,7 @@ if (args.loop):
         swagB()
         swag3D()
 
-else:
+else:  # Else run throw whole program once
     os.system('clear')
     s()
     w()
@@ -203,6 +203,3 @@ else:
     g()
     swagB()
     swag3D()
-
-
-##########################################
